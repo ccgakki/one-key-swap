@@ -7,7 +7,7 @@ Red="\033[31m"
 
 #检查root权限
 root_need(){
-    if [[`id -u` == 0 ]]; then
+    if [ `id -u` -ne 0 ]; then
         echo -e "${Red}Error:This script must be run as root!${Font}"
         exit 1
     fi
@@ -72,10 +72,10 @@ echo -e "${Green}1、添加swap${Font}"
 echo -e "${Green}2、删除swap${Font}"
 echo -e "———————————————————————————————————————"
 read -p "请输入数字 [1-2]:" num
-if ($num == 1)
+if [ $num == 1 ]
 then
   add_swap
-elif ($num == 2)
+elif [ $num == 2 ]
 then
   del_swap
 else
